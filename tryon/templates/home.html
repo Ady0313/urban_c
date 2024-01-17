@@ -1,0 +1,57 @@
+<!-- tryon/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Try-On Home</title>
+</head>
+<body>
+    <h1>Welcome to Virtual Try-On!</h1>
+    <p>This is a basic home page for your Virtual Try-On project.</p>
+    
+    <form id="configForm">
+        <label for="lookUri">Look URI:</label>
+        <input type="text" id="lookUri" name="lookUri" required>
+        <br>
+
+        <label for="avatarUri">Avatar URI:</label>
+        <input type="text" id="avatarUri" name="avatarUri" required>
+        <br>
+
+        <button type="button" onclick="submitConfig()">Submit Config</button>
+    </form>
+
+    <script>
+        function submitConfig() {
+            const lookUri = document.getElementById('lookUri').value;
+            const avatarUri = document.getElementById('avatarUri').value;
+
+            // Sample code to make an API request using fetch
+            const postData = {
+                look_uri: lookUri,
+                avatar_uri: avatarUri,
+            };
+
+            fetch('http://localhost:8000/try-on-api/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(postData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    console.log('Config submitted successfully');
+                } else {
+                    console.error('Error:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error', error);
+            });
+        }
+    </script>
+</body>
+</html>

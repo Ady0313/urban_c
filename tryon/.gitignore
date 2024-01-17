@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+local_settings.py
+
+# Database
+db.sqlite3
+
+# Log files
+*.log
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# Virtual environment
+venv/
+venv32/
+env/
+*.pyc
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Compiled Python files
+*.pyc
+
+# Compiled C extension
+*.so
+
+# Compiled Java classes
+*.class
+
+# Generated Python bytecode
+__pycache__/
+
+# Ignore pipenv virtual environment
+/.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Visual Studio Code
+.vscode/
